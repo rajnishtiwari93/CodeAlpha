@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class StudentGradeTracker {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> studentNames = new ArrayList<>();
@@ -11,21 +9,16 @@ public class StudentGradeTracker {
         System.out.println("===== Student Grade Tracker =====");
         System.out.print("Enter the number of students: ");
         int n = sc.nextInt();
-        sc.nextLine(); // Consume newline
-
-        // Input student names and grades
+        sc.nextLine(); 
         for (int i = 0; i < n; i++) {
             System.out.print("\nEnter name of student " + (i + 1) + ": ");
             String name = sc.nextLine();
             System.out.print("Enter grade for " + name + ": ");
             double grade = sc.nextDouble();
-            sc.nextLine(); // Consume newline
-
+            sc.nextLine(); 
             studentNames.add(name);
             studentGrades.add(grade);
-        }
-
-        // Calculate average, highest, lowest
+        }  
         double total = 0;
         double highest = studentGrades.get(0);
         double lowest = studentGrades.get(0);
@@ -35,19 +28,14 @@ public class StudentGradeTracker {
             if (g > highest) highest = g;
             if (g < lowest) lowest = g;
         }
-
         double average = total / n;
-
-        // Display summary report
         System.out.println("\n===== Grade Summary Report =====");
         for (int i = 0; i < n; i++) {
             System.out.println(studentNames.get(i) + " : " + studentGrades.get(i));
         }
-
         System.out.println("\nAverage Grade: " + average);
         System.out.println("Highest Grade: " + highest);
         System.out.println("Lowest Grade : " + lowest);
-
         System.out.println("================================");
         sc.close();
     }
